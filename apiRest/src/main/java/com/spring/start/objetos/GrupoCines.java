@@ -51,6 +51,16 @@ public class GrupoCines {
 
 	}
 
+	public void addCine(Cine cine) {
+		
+		checkId(cine);
+		
+		cine.setDireccion(DireccionConstructor.construirDireccion());
+		
+		cines.add(cine);
+		
+	}
+	
 	public boolean comprobarExiste(int id) {
 
 		boolean encontrado = false;
@@ -62,5 +72,20 @@ public class GrupoCines {
 		}
 		return encontrado;
 
+	}
+	
+	private void checkId(Cine cine) {
+		
+		if (cines.isEmpty()) {
+			cine.setId(0);
+		} 
+		else {
+			for (Cine cineTest : cines) {
+				if (cineTest.getId() == cine.getId()) {
+					cine.setId(cines.get(cines.size() - 1).getId() + 1);
+				}
+			}
+		}
+		
 	}
 }

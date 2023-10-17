@@ -45,10 +45,12 @@ public class Rutas {
 	@Autowired
 	private GrupoCines grupoCines;
 	
+	
+	
 	@GetMapping("/cines")
 	public List<Cine> cinesWrite() {
 		
-		GrupoCines grupoCines = GrupoCines.getGrupoCines();
+		grupoCines = GrupoCines.getGrupoCines();
 		
 		 
 		List<Cine> cines = grupoCines.getCines();
@@ -57,9 +59,20 @@ public class Rutas {
 	}
 	
 	
-	@PostMapping("/cines")
-	public List<Cine> cinesPost(){
+	@PostMapping("/cines/{id}/{nombre}/{capacidad}")
+	public List<Cine> cinesPost(
+			@PathVariable int id,
+			@PathVariable String nombre, 
+			@PathVariable int capacidad){
 		
+		grupoCines = GrupoCines.getGrupoCines();
+		Cine cine = new Cine();
+		
+		cine.setId(id);
+		cine.setCapacidad(capacidad);
+		cine.setNombre(nombre);
+		
+		grupoCines.addCine(cine);
 		
 		return grupoCines.getCines();
 	}
