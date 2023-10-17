@@ -56,6 +56,14 @@ public class Rutas {
 		return cines;
 	}
 	
+	
+	@PostMapping("/cines")
+	public List<Cine> cinesPost(){
+		
+		
+		return grupoCines.getCines();
+	}
+	
 	/*
 	@DeleteMapping(value={"/cines/{id}"})
 	public ResponseEntity<ArrayList<Cine>> deleteCine(@PathVariable int id) {

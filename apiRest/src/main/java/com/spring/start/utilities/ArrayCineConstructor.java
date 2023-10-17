@@ -34,4 +34,10 @@ public class ArrayCineConstructor {
 		
 		return cines;
 	}
+	
+	public static void addCine(List<Cine> cine) {
+		
+		
+		
+	}
 }

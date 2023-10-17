@@ -13,6 +13,7 @@ public class GrupoCines {
 	private static GrupoCines grupoCines = null;
 	private List<Cine> cines;
 
+	
 	private GrupoCines() {
 		
 	}
