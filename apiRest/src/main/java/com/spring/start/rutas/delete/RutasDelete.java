@@ -24,11 +24,11 @@ public class RutasDelete {
 	public ResponseEntity<List<Cine>> deleteCine(@PathVariable int id) {
 		
 		
-		GrupoCines grupoCine =  GrupoCines.getGrupoCines();
+		 grupoCines =  GrupoCines.getGrupoCines();
 		
-		if(grupoCine.comprobarExiste(id)==true) {
-			grupoCine.borrarCine(id);
-			return ResponseEntity.status(HttpStatus.OK).body(grupoCine.getCines());
+		if(grupoCines.comprobarExiste(id)==true) {
+			grupoCines.borrarCine(id);
+			return ResponseEntity.status(HttpStatus.OK).body(grupoCines.getCines());
 		}
 		else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);

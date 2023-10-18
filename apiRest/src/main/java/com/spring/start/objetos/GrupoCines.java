@@ -88,4 +88,21 @@ public class GrupoCines {
 		}
 		
 	}
+	public void actualizarCine(Cine cine) {
+		
+		
+		boolean encontrado = false;
+		int i=0;
+		
+		while(encontrado==false&&i!=cines.size()) {
+			if(cines.get(i).getId()==cine.getId()) {
+				encontrado = true;
+				cines.set(i, cine);
+			}
+			i++;
+		}
+		
+	}
+
+	
 }

@@ -59,24 +59,7 @@ public class Rutas {
 	}
 	
 	
-	@PostMapping("/cines/{id}/{nombre}/{capacidad}")
-	public List<Cine> cinesPost(
-			@PathVariable int id,
-			@PathVariable String nombre, 
-			@PathVariable int capacidad){
-		
-		grupoCines = GrupoCines.getGrupoCines();
-		Cine cine = new Cine();
-		
-		cine.setId(id);
-		cine.setCapacidad(capacidad);
-		cine.setNombre(nombre);
-		
-		grupoCines.addCine(cine);
-		
-		return grupoCines.getCines();
-	}
-	
+
 	/*
 	@DeleteMapping(value={"/cines/{id}"})
 	public ResponseEntity<ArrayList<Cine>> deleteCine(@PathVariable int id) {
