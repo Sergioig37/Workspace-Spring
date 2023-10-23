@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.spring.start.objetos.Cine;
 import com.spring.start.objetos.GrupoCines;
+import com.spring.start.objetos.Pelicula;
 
 @Controller
 public class RutasPut {
 
+	@Autowired
+	Pelicula peliculaEjemplo;
 	@Autowired
 	private GrupoCines grupoCines;
 	
@@ -25,5 +28,20 @@ public class RutasPut {
 		grupoCines.actualizarCine(cine);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(cine);
+	}
+	
+	@PutMapping(value={"/cine/{idCine}/pelicula/{idPelicula}"})
+	public ResponseEntity<Pelicula> putPelicula(@PathVariable int idCine,
+			@PathVariable int idPelicula){
+		
+		
+		if(grupoCines.getCine(idCine)==null||grupoCines.getCine(idCine).getPelicula(idPelicula)==null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		else {
+			grupoCines.getCine(idCine).updatePelicula(idPelicula, peliculaEjemplo);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		
 	}
 }

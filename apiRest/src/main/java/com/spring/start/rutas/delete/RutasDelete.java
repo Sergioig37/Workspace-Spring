@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.start.objetos.Cine;
 import com.spring.start.objetos.GrupoCines;
+import com.spring.start.objetos.Pelicula;
 
 @Controller
 public class RutasDelete {
@@ -34,5 +35,23 @@ public class RutasDelete {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
 	
+	}
+	
+	@DeleteMapping(value={"/cine/{idCine}/pelicula/{idPelicula}"})
+	public ResponseEntity<Pelicula> deletePelicula(@PathVariable int idCine,
+			@PathVariable int idPelicula){
+		
+		
+		
+		if(grupoCines.getCine(idCine)==null||grupoCines.getCine(idCine).getPelicula(idPelicula)==null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		else {
+			grupoCines.getCine(idCine).deletePelicula(idPelicula);
+			return ResponseEntity.status(HttpStatus.OK).body(null);
+		}
+		
+		
+		
 	}
 }

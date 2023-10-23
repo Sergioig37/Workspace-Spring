@@ -3,6 +3,8 @@ package com.spring.start.rutas.post;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.start.objetos.Cine;
 import com.spring.start.objetos.GrupoCines;
+import com.spring.start.objetos.Pelicula;
 
 @RestController
 public class RutasPost {
 
+	@Autowired
+	Pelicula peliculaEjemplo;
 	@Autowired
 	private GrupoCines grupoCines;
 
@@ -26,6 +31,20 @@ public class RutasPost {
 		grupoCines.addCine(cine);
 		
 		System.out.println(cine);
+	}
+	
+	@PostMapping(value={"/cine/{idCine}/pelicula"})
+	public ResponseEntity<List<Pelicula>> postPelicula(@PathVariable int idCine){
+		
+		
+		if(grupoCines.getCine(idCine)==null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		else {
+			grupoCines.getCine(idCine).addPelicula(peliculaEjemplo);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		
 	}
 	
 }

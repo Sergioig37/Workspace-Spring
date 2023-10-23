@@ -13,9 +13,8 @@ public class GrupoCines {
 	private static GrupoCines grupoCines = null;
 	private List<Cine> cines;
 
-	
 	private GrupoCines() {
-		
+
 	}
 
 	public static GrupoCines getGrupoCines() {
@@ -27,6 +26,21 @@ public class GrupoCines {
 
 		return grupoCines;
 
+	}
+
+	public Cine getCine(int id) {
+
+		Cine cine = new Cine();
+		boolean encontrado = false;
+		int i = 0;
+		while (encontrado == false && i != cines.size()) {
+			if (cines.get(i).getId() == id) {
+				cine = cines.get(i);
+				encontrado = true;
+			}
+			i++;
+		}
+		return cine;
 	}
 
 	public List<Cine> getCines() {
@@ -52,15 +66,15 @@ public class GrupoCines {
 	}
 
 	public void addCine(Cine cine) {
-		
+
 		checkId(cine);
-		
+
 		cine.setDireccion(DireccionConstructor.construirDireccion());
-		
+
 		cines.add(cine);
-		
+
 	}
-	
+
 	public boolean comprobarExiste(int id) {
 
 		boolean encontrado = false;
@@ -73,36 +87,34 @@ public class GrupoCines {
 		return encontrado;
 
 	}
-	
+
 	private void checkId(Cine cine) {
-		
+
 		if (cines.isEmpty()) {
 			cine.setId(0);
-		} 
-		else {
+		} else {
 			for (Cine cineTest : cines) {
 				if (cineTest.getId() == cine.getId()) {
 					cine.setId(cines.get(cines.size() - 1).getId() + 1);
 				}
 			}
 		}
-		
+
 	}
+
 	public void actualizarCine(Cine cine) {
-		
-		
+
 		boolean encontrado = false;
-		int i=0;
-		
-		while(encontrado==false&&i!=cines.size()) {
-			if(cines.get(i).getId()==cine.getId()) {
+		int i = 0;
+
+		while (encontrado == false && i != cines.size()) {
+			if (cines.get(i).getId() == cine.getId()) {
 				encontrado = true;
 				cines.set(i, cine);
 			}
 			i++;
 		}
-		
+
 	}
 
-	
 }
