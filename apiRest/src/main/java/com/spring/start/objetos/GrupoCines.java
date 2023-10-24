@@ -33,7 +33,7 @@ public class GrupoCines {
 		Cine cine = new Cine();
 		boolean encontrado = false;
 		int i = 0;
-		while (encontrado == false && i != cines.size()) {
+		while (encontrado == false && i < cines.size()) {
 			if (cines.get(i).getId() == id) {
 				cine = cines.get(i);
 				encontrado = true;

@@ -41,6 +41,9 @@ public class Rutas {
 	@GetMapping(value= {"/cine/{idCine}/pelicula"})
 	public ResponseEntity<List<Pelicula>> sacarPeliculas(@PathVariable int idCine){
 		
+		grupoCines = GrupoCines.getGrupoCines();
+
+		
 		if(grupoCines.getCine(idCine)==null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}

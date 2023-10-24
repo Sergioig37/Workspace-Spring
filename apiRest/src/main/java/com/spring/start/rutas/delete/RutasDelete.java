@@ -40,14 +40,16 @@ public class RutasDelete {
 	@DeleteMapping(value={"/cine/{idCine}/pelicula/{idPelicula}"})
 	public ResponseEntity<Pelicula> deletePelicula(@PathVariable int idCine,
 			@PathVariable int idPelicula){
-		
+		grupoCines =  GrupoCines.getGrupoCines();
 		
 		
 		if(grupoCines.getCine(idCine)==null||grupoCines.getCine(idCine).getPelicula(idPelicula)==null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
 		else {
-			grupoCines.getCine(idCine).deletePelicula(idPelicula);
+			Cine cine= grupoCines.getCine(idCine);
+			 cine.deletePelicula(idPelicula);
+			grupoCines.actualizarCine(cine);
 			return ResponseEntity.status(HttpStatus.OK).body(null);
 		}
 		

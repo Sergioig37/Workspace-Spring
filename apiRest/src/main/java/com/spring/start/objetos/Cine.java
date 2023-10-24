@@ -67,6 +67,7 @@ public class Cine {
 		while(borrado==false&&i!=peliculas.size()) {
 			if (peliculas.get(i).getId() == id) {
 				peliculas.remove(i);
+				borrado = true;
 			}
 			i++;
 		}
@@ -81,10 +82,10 @@ public class Cine {
 		int i=0;
 		while(actualizado==false&&i!=peliculas.size()) {
 			if(peliculas.get(i).getId()==id) {
+				pelicula.setId(peliculas.get(i).getId());
 				peliculas.set(i, pelicula); 
 				actualizado = true;
 			}
-			
 			i++;
 		}
 		

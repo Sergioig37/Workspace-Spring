@@ -32,15 +32,20 @@ public class RutasPut {
 	
 	@PutMapping(value={"/cine/{idCine}/pelicula/{idPelicula}"})
 	public ResponseEntity<Pelicula> putPelicula(@PathVariable int idCine,
-			@PathVariable int idPelicula){
+			@PathVariable int idPelicula 
+			,@RequestBody Pelicula pelicula){
 		
+		grupoCines =  GrupoCines.getGrupoCines();
 		
 		if(grupoCines.getCine(idCine)==null||grupoCines.getCine(idCine).getPelicula(idPelicula)==null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
 		else {
-			grupoCines.getCine(idCine).updatePelicula(idPelicula, peliculaEjemplo);
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+			
+			Cine cine= grupoCines.getCine(idCine);
+			cine.updatePelicula(idPelicula, pelicula);
+			grupoCines.actualizarCine(cine);
+			return ResponseEntity.status(HttpStatus.OK).body(null);
 		}
 		
 	}

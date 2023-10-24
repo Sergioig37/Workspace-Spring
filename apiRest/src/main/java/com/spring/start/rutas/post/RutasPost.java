@@ -36,13 +36,16 @@ public class RutasPost {
 	@PostMapping(value={"/cine/{idCine}/pelicula"})
 	public ResponseEntity<List<Pelicula>> postPelicula(@PathVariable int idCine){
 		
+		grupoCines =  GrupoCines.getGrupoCines();
 		
 		if(grupoCines.getCine(idCine)==null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
 		else {
-			grupoCines.getCine(idCine).addPelicula(peliculaEjemplo);
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+			Cine cine= grupoCines.getCine(idCine);
+			cine.addPelicula(peliculaEjemplo);
+			grupoCines.actualizarCine(cine);
+			return ResponseEntity.status(HttpStatus.OK).body(null);
 		}
 		
 	}
