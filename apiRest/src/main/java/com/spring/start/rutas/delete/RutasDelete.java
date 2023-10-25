@@ -25,7 +25,7 @@ public class RutasDelete {
 	public ResponseEntity<List<Cine>> deleteCine(@PathVariable int id) {
 		
 		
-		 grupoCines =  GrupoCines.getGrupoCines();
+		
 		
 		if(grupoCines.comprobarExiste(id)==true) {
 			grupoCines.borrarCine(id);
@@ -40,7 +40,7 @@ public class RutasDelete {
 	@DeleteMapping(value={"/cine/{idCine}/pelicula/{idPelicula}"})
 	public ResponseEntity<Pelicula> deletePelicula(@PathVariable int idCine,
 			@PathVariable int idPelicula){
-		grupoCines =  GrupoCines.getGrupoCines();
+
 		
 		
 		if(grupoCines.getCine(idCine)==null||grupoCines.getCine(idCine).getPelicula(idPelicula)==null) {

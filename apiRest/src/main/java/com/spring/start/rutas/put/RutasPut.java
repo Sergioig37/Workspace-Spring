@@ -23,7 +23,6 @@ public class RutasPut {
 	@PutMapping("/cines/put")
 	public ResponseEntity<Cine> updateCine(@RequestBody Cine cine) {
 		
-		grupoCines = GrupoCines.getGrupoCines();
 		
 		grupoCines.actualizarCine(cine);
 		
@@ -35,7 +34,7 @@ public class RutasPut {
 			@PathVariable int idPelicula 
 			,@RequestBody Pelicula pelicula){
 		
-		grupoCines =  GrupoCines.getGrupoCines();
+		
 		
 		if(grupoCines.getCine(idCine)==null||grupoCines.getCine(idCine).getPelicula(idPelicula)==null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);

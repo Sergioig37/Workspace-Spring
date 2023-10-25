@@ -10,27 +10,16 @@ import com.spring.start.utilities.ArrayCineConstructor;
 @Service
 public class GrupoCines {
 
-	private static GrupoCines grupoCines = null;
 	private List<Cine> cines;
 
 	private GrupoCines() {
-
+		setCines(ArrayCineConstructor.construirCines());
 	}
 
-	public static GrupoCines getGrupoCines() {
-
-		if (grupoCines == null) {
-			grupoCines = new GrupoCines();
-			grupoCines.setCines(ArrayCineConstructor.construirCines());
-		}
-
-		return grupoCines;
-
-	}
-
+	
 	public Cine getCine(int id) {
 
-		Cine cine = new Cine();
+		Cine cine = null;
 		boolean encontrado = false;
 		int i = 0;
 		while (encontrado == false && i < cines.size()) {
