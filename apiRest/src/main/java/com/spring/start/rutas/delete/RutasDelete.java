@@ -15,7 +15,7 @@ import com.spring.start.objetos.Cine;
 import com.spring.start.objetos.GrupoCines;
 import com.spring.start.objetos.Pelicula;
 
-@Controller
+@RestController
 public class RutasDelete {
 
 	@Autowired

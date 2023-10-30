@@ -7,12 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.start.objetos.Cine;
 import com.spring.start.objetos.GrupoCines;
 import com.spring.start.objetos.Pelicula;
 
-@Controller
+@RestController
 public class RutasPut {
 
 	@Autowired
