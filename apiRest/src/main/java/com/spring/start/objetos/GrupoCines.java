@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.spring.start.utilities.ArrayCineConstructor;
 
 @Service
+
+
 public class GrupoCines {
 
 	private List<Cine> cines;
