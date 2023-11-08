@@ -2,14 +2,18 @@ package com.spring.start.clase;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+//indica que es un repositorio/que va ser una tabla
 @Entity
 public class Persona implements Serializable{
-
+	
+	//indica que es un id
 	@Id
 	private String dni;
+	@Column // indica las columnas y sirve si quieres cambiarle el nombre a alguna
 	private String nombre;
 	private String apellidos;
 	private String ciudad;

@@ -10,12 +10,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-
+// @Table(name="xxx) sirve para cambiarle el nombre a la tabhla
 public class Tasks implements Serializable{
 
 	
 	
 	@Id
+	//sirve para indicar que el id es autoincremental
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@Column
