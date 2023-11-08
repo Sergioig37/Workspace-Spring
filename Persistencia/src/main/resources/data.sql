@@ -8,3 +8,4 @@ insert into persona (dni,nombre,apellidos,ciudad)values('86242890V','Marcos', 'L
 insert into persona (dni,nombre,apellidos,ciudad)values('95830582J','Juan', 'DelCampo Iglesias','Gijón');
 insert into persona (dni,nombre,apellidos,ciudad)values('48623968K','David', 'Busto Mar','Avilés');
 
+// así se comenta en este sql 
