@@ -1,10 +1,17 @@
 package com.spring.start.clase;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 //indica que es un repositorio/que va ser una tabla
 @Entity
@@ -17,7 +24,6 @@ public class Persona implements Serializable{
 	private String nombre;
 	private String apellidos;
 	private String ciudad;
-	
 	
 	
 	public String getDni() {

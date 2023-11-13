@@ -8,4 +8,23 @@ insert into persona (dni,nombre,apellidos,ciudad)values('86242890V','Marcos', 'L
 insert into persona (dni,nombre,apellidos,ciudad)values('95830582J','Juan', 'DelCampo Iglesias','Gijón');
 insert into persona (dni,nombre,apellidos,ciudad)values('48623968K','David', 'Busto Mar','Avilés');
 
-// así se comenta en este sql 
+
+
+insert into alumnado (nombre)values('Sergio');
+insert into alumnado (nombre)values('Marcos');
+
+
+
+
+insert into proyectos (titulo, FK_ALUMNADO)values('Móviles',1);
+insert into proyectos (titulo, FK_ALUMNADO)values('Magdalenas',1);
+insert into proyectos (titulo,FK_ALUMNADO)values('Bocadillos',2);
+
+
+
+
+
+
+
+
+
