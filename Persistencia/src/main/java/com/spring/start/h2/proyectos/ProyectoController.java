@@ -53,14 +53,14 @@ public class ProyectoController {
 												@RequestBody Proyectos proyecto){
 		
 		
-		Optional<Proyectos> proyecto2 = proyectoDAO.findById(id);
+		Optional<Proyectos> proyectoClon = proyectoDAO.findById(id);
+		Long idl = Long.parseLong(id);
 		
-		if(proyecto2.isPresent()) {
-			
+		if(proyectoClon.isPresent()) {
+			proyecto.setId(idl);
 			proyectoDAO.save(proyecto);
 			return ResponseEntity.status(HttpStatus.OK).body(proyecto);
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		
 	}
 }

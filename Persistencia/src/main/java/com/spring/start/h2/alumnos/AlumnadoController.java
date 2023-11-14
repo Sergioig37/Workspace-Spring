@@ -57,9 +57,10 @@ public class AlumnadoController {
 		
 		
 		Optional<Alumnado> alumno2 = alumnadoDAO.findById(id);
+		Long idl = Long.parseLong(id);
 		
 		if(alumno2.isPresent()) {
-			
+			alumno.setId(idl);
 			alumnadoDAO.save(alumno);
 			return ResponseEntity.status(HttpStatus.OK).body(alumno);
 		}
